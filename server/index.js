@@ -1,7 +1,7 @@
 import "dotenv/config";
-import path from "path";
 import express from "express";
 import cors from "cors";
+import * as leaderboard from "./leaderboard.js";
 
 const app = express();
 const corsOptions = {
@@ -10,15 +10,9 @@ const corsOptions = {
 
 app.use(express.static("public/dist"));
 app.use(cors(corsOptions));
-// // app.use("/api/races", races.router);
 
-// app.get("/*", (_, res) => {
-//   res.sendFile(path.join(__dirname, "../public/", "index.html"), (err) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//   });
-// });
+app.use(express.json());
+app.use("/api/leaderboard", leaderboard.router);
 
 app.get("/data", (_, res) => {
   res.json([

@@ -5,41 +5,20 @@ import Profiles from "./Profiles";
 export default function Board() {
   const [leaderboard, setLeaderboard] = useState([]);
 
-  const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/data");
+  const fetchData = async (key, count) => {
+    const response = await fetch(
+      `http://localhost:3000/api/leaderboard/${key}?count=${count}`
+    );
     setLeaderboard(await response.json());
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData("redis-racer", 10);
   }, []);
-
-  // const data = [
-  //   {
-  //     value: "OLY-2025-09-23T08:45:33.674Z",
-  //     score: 3364,
-  //   },
-  //   {
-  //     value: "LOP-2025-09-23T08:39:46.657Z",
-  //     score: 2354,
-  //   },
-  //   {
-  //     value: "CRK-2025-09-23T08:39:23.509Z",
-  //     score: 1564,
-  //   },
-  //   {
-  //     value: "JIL-2025-09-23T08:39:36.947Z",
-  //     score: 1468,
-  //   },
-  //   {
-  //     value: "TVR-2025-09-23T08:29:41.787Z",
-  //     score: 14,
-  //   },
-  // ];
 
   const handleClick = () => {
     // window.location.reload();
-    fetchData();
+    fetchData("redis-racer", 10);
   };
 
   return (

@@ -6,12 +6,7 @@ if (!process.env.REDIS_URL) {
 
 let client = null;
 
-/**
- * @param {import("redis").RedisClientOptions} [options]
- *
- * @returns {Promise<ReturnType<typeof createClient>>}
- */
-export async function getClient(options) {
+export default async function getClient(options) {
   options = Object.assign(
     {},
     {
