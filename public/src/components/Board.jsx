@@ -3,7 +3,7 @@ import Profiles from "./Profiles";
 import { io } from "socket.io-client";
 
 const leaderboardKey = "redis-racer";
-const leaderboardCount = 10;
+const leaderboardCount = 25;
 const socket = io("http://localhost:4000");
 
 export default function Board() {

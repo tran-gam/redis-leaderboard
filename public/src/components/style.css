@@ -13,16 +13,6 @@
   --color-midnight: #091a23;
 }
 
-body {
-  background-color: var(--color-midnight);
-  /* background-color: slategrey; */
-  /* background-image: url("src/assets/vite.svg");
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: cover;
-  background-attachment: fixed; */
-}
-
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -42,14 +32,8 @@ body {
 }
 
 .board .leaderboard {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
-
-/* .board .duration {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-} */
 
 .board button {
   border: 1px solid var(--color-light);
