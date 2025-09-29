@@ -1,5 +1,6 @@
 import express from "express";
 import getClient from "./redis.js";
+import { io } from "./index.js";
 
 export async function addLeaderboardEntry(key, score, member) {
   const redis = await getClient();
@@ -9,6 +10,8 @@ export async function addLeaderboardEntry(key, score, member) {
   const result = await redis.zAdd(key, [
     { value: member.toUpperCase() + "-" + date.toISOString(), score: score },
   ]);
+
+  io.emit("entryAdded");
 
   if (result > 0) {
     return {
@@ -32,13 +35,11 @@ export async function getLeaderboard(key, count) {
     return { status: 404, message: "No leaderboard entries found." };
   }
 
-  //   const leaderboard = {
-  //     "leaderboard": result
-  //   };
+  const leaderboard = {
+    leaderboard: result,
+  };
 
-  //   return leaderboard;
-
-  return result;
+  return leaderboard;
 }
 
 export const router = express.Router();

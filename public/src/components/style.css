@@ -6,19 +6,22 @@
 }
 
 :root {
-  --color-dark: #cf2828;
+  --color-red: #cf2828;
   --color-light: #f3f3f2;
-  --color-emphasis: #d6ff64;
+  --color-yellow: #f1ffa5;
+  --color-dusk: #2d4754;
+  --color-midnight: #091a23;
 }
 
-/* body {
-  background-color: slategrey;
-  background-image: url("src/assets/vite.svg");
+body {
+  background-color: var(--color-midnight);
+  /* background-color: slategrey; */
+  /* background-image: url("src/assets/vite.svg");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: cover;
-  background-attachment: fixed;
-} */
+  background-attachment: fixed; */
+}
 
 #root {
   max-width: 1280px;
@@ -57,17 +60,19 @@
 }
 
 .board button:hover {
-  background-color: var(--color-dark);
+  background-color: var(--color-red);
   color: var(--color-light);
 }
 
 .active {
-  background-color: var(--color-dark);
+  background-color: var(--color-red);
   color: var(--color-light);
 }
 
 #profile {
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
 
   margin-top: 1em;
 }
@@ -78,9 +83,13 @@
   gap: 1em;
   text-align: left;
   margin-bottom: 0.5em;
+  background-color: var(--color-dusk);
+  padding: 0 2em;
+  border-radius: 10px;
+  box-shadow: 1px 10px 20px #858b9259;
 }
 
-#profile .flex .item {
+#profile .flex .rank {
   display: flex;
   align-items: center;
 }
@@ -91,16 +100,24 @@
 }
 
 #profile .flex .info {
-  /* padding: 1em; */
-  padding-left: 1em;
+  padding: 0.5em;
+  padding-left: 2em;
+  text-align: left;
+}
+
+#profile .flex .score {
+  display: flex;
+  align-items: center;
+  /* font-size: 1.5em; */
+  font-weight: bold;
 }
 
 .text-dark {
-  color: var(--color-dark);
+  color: var(--color-red);
 }
 .text-light {
   color: var(--color-light);
 }
 .text-emphasis {
-  color: var(--color-emphasis);
+  color: var(--color-yellow);
 }
